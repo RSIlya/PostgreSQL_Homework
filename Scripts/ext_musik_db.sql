@@ -1,6 +1,7 @@
 create table if not exists Album(
 	id serial primary key,
-	title varchar(255)
+	title varchar(255),
+	year integer check (year > 1900)
 );
 create table if not exists Song(
 	id serial primary key,
@@ -11,7 +12,7 @@ create table if not exists Song(
 create table if not exists Collections(
 	id serial primary key,
 	name varchar(255) not null unique,
-	year integer check(Year > 1900)
+	year integer check(year > 1900)
 );
 create table if not exists CollectionsTrack(
 	collections_id integer not null references Collections(id),
